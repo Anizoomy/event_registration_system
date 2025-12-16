@@ -4,12 +4,16 @@ const PORT = process.env.PORT
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userRouter = require('./routes/userRouter');
+const eventRouter = require('./routes/eventRouter');
+const adminRouter = require('./routes/adminRouter');
 
 const app = express()
 app.use(express.json());
 app.use(cors());
 
 app.use('/api/v1', userRouter);
+app.use('/api/v1', eventRouter);
+app.use('/api/v1', adminRouter)
 
 const DB = process.env.MONGODB_URL;
 
